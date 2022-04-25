@@ -1,5 +1,6 @@
 from tkinter import *
 import settings
+import utilities
 
 root = Tk()
 # Override the settings of the window
@@ -13,8 +14,8 @@ root.title("Python_Minesweeper")
 top_frame = Frame(
     root,
     bg= 'red', #Change later
-    width= 1440,
-    height= 180
+    width= utilities.width_prct(100),
+    height= utilities.height_prct(25)
 )
 
 top_frame.place(x=0, y=0)
@@ -22,8 +23,8 @@ top_frame.place(x=0, y=0)
 left_frame = Frame(
     root,
     bg= 'blue', # Change color later
-    width=360,
-    height=540
+    width=utilities.width_prct(25),
+    height=utilities.height_prct(75)
 )
 
 left_frame.place(x=0, y=180)
