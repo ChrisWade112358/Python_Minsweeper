@@ -13,7 +13,7 @@ root.title("Python_Minesweeper")
 
 top_frame = Frame(
     root,
-    bg= 'red', #Change later
+    bg= settings.bg["green"],
     width= utilities.width_prct(100),
     height= utilities.height_prct(25)
 )
@@ -22,12 +22,21 @@ top_frame.place(x=0, y=0)
 
 left_frame = Frame(
     root,
-    bg= 'blue', # Change color later
+    bg= settings.bg["brown"],
     width=utilities.width_prct(25),
     height=utilities.height_prct(75)
 )
 
-left_frame.place(x=0, y=180)
+left_frame.place(x=0, y=utilities.height_prct(25))
+
+center_frame = Frame(
+    root,
+    bg=settings.bg["orange"],
+    width=utilities.width_prct(75),
+    height=utilities.height_prct(75)
+)
+
+center_frame.place(x=utilities.width_prct(25), y=utilities.height_prct(25))
 
 # Run the window
 root.mainloop()
