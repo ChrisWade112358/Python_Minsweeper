@@ -1,4 +1,5 @@
 from tkinter import Button
+import tkinter.font as font
 import random
 import settings
 class Cell:
@@ -18,7 +19,8 @@ class Cell:
             bg=settings.bg['red'], # bg cannot be changed on a Mac OS due to OS overriding tkinter (I know this sucks)
                                    # Mac will only display buttons with a white background
             fg=settings.bg['red'],
-            text=f"{self.x}, {self.y}"
+            font= font.Font(weight="bold")
+
 
 
         )
@@ -31,6 +33,9 @@ class Cell:
             print("Is Potato")
             self.show_mine()
         else:
+            if self.surrounded_cells_mines_length == 0:
+                for cell_obj in self.surrounded_cells:
+                    cell_obj.show_cell()
             self.show_cell()
 
     def get_cell_by_axis(self, x, y):
@@ -63,7 +68,7 @@ class Cell:
         return counter
 
     def show_cell(self):
-        self.cell_btn_object.configure(text=f"{self.surrounded_cells_mines_length}")
+        self.cell_btn_object.configure(text=f"{self.surrounded_cells_mines_length}", fg= settings.bg["blue"])
 
 
 
