@@ -20,7 +20,10 @@ top_frame = Frame(
     height= utilities.height_prct(25)
 )
 
-top_frame.place(x=0, y=0)
+top_frame.place(
+    x=0,
+    y=0
+)
 
 left_frame = Frame(
     root,
@@ -29,7 +32,10 @@ left_frame = Frame(
     height=utilities.height_prct(75)
 )
 
-left_frame.place(x=0, y=utilities.height_prct(25))
+left_frame.place(
+    x=0,
+    y=utilities.height_prct(25)
+)
 
 center_frame = Frame(
     root,
@@ -38,20 +44,21 @@ center_frame = Frame(
     height=utilities.height_prct(75)
 )
 
-c1 = Cell()
-c1.create_btn_object(center_frame)
-c1.cell_btn_object.grid(
-    column=0, row=0
+center_frame.place(
+    x=utilities.width_prct(25),
+    y=utilities.height_prct(25)
 )
 
-c2 = Cell()
-c2.create_btn_object(center_frame)
-c2.cell_btn_object.grid(
-    column=0, row=1
-)
+for x in range(settings.GRID_SIZE):
+    for y in range(settings.GRID_SIZE):
+        c = Cell(x, y)
+        c.create_btn_object(center_frame)
+        c.cell_btn_object.grid(
+            column=x,
+            row=y,
+        )
 
-
-center_frame.place(x=utilities.width_prct(25), y=utilities.height_prct(25))
+Cell.randomize_mines()
 
 # Run the window
 root.mainloop()
