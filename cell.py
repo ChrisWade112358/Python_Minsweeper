@@ -1,4 +1,4 @@
-from tkinter import Button
+from tkinter import Button, Label
 import tkinter.font as font
 import random
 import settings
@@ -16,12 +16,16 @@ class Cell:
             location,
             width=12,
             height=4,
-            bg=settings.bg['red'], # bg cannot be changed on a Mac OS due to OS overriding tkinter (I know this sucks)
+            bg=settings.bg['green'], # bg cannot be changed on a Mac OS due to OS overriding tkinter (I know this sucks)
                                    # Mac will only display buttons with a white background
             fg=settings.bg['red'],
             font= font.Font(weight="bold")
 
-
+    def create_cell_count_label(self, location):
+        label = Label(
+            location,
+            text=f"Cells Left: {settings.CELL_COUNT}"
+        )
 
         )
         btn.bind('<Button-1>', self.left_click_actions) # Left Click
